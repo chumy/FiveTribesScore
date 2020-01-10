@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
 
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -38,7 +37,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/titulo" />
+                    app:srcCompat="@mipmap/titulo"
+                    android:contentDescription="@string/Jugadores"/>
 
                 <TextView
                     android:id="@+id/tv_jugador1"
@@ -95,7 +95,8 @@
                     android:adjustViewBounds="true"
                     android:background="#B784F0FF"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/monedas" />
+                    app:srcCompat="@mipmap/monedas"
+                    android:contentDescription="@string/monedas"/>
 
                 <TextView
                     android:id="@+id/tv_moneda1"
@@ -155,7 +156,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/nobles" />
+                    app:srcCompat="@mipmap/nobles"
+                    android:contentDescription="@string/nobles"/>
 
                 <TextView
                     android:id="@+id/tv_noble1"
@@ -215,7 +217,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/sabios" />
+                    app:srcCompat="@mipmap/sabios"
+                    android:contentDescription="@string/sabios"/>
 
                 <TextView
                     android:id="@+id/tv_sabio1"
@@ -275,7 +278,9 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/djins" />
+                    app:srcCompat="@mipmap/djins"
+                    android:contentDescription="@string/djins"
+                    />
 
                 <TextView
                     android:id="@+id/tv_djin1"
@@ -335,7 +340,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/palmeras" />
+                    app:srcCompat="@mipmap/palmeras"
+                    android:contentDescription="@string/palmeras" />
 
                 <TextView
                     android:id="@+id/tv_palmera1"
@@ -395,7 +401,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/castillos" />
+                    app:srcCompat="@mipmap/castillos"
+                    android:contentDescription="@string/castillos" />
 
                 <TextView
                     android:id="@+id/tv_castillo1"
@@ -455,7 +462,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/camellos" />
+                    app:srcCompat="@mipmap/camellos"
+                    android:contentDescription="@string/camellos" />
 
                 <TextView
                     android:id="@+id/tv_camello1"
@@ -506,7 +514,8 @@
                 android:background="#DAE998"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCamellos">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCamellos"
+                 >
 
                 <ImageView
                     android:id="@+id/ivMercado"
@@ -515,7 +524,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/mercado" />
+                    app:srcCompat="@mipmap/mercado"
+                    android:contentDescription="@string/mercado" />
 
                 <TextView
                     android:id="@+id/tv_mercado1"
@@ -574,7 +584,8 @@
                     android:layout_weight="24"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/total" />
+                    app:srcCompat="@mipmap/total"
+                    android:contentDescription="@string/total" />
 
                 <TextView
                     android:id="@+id/tv_total1"

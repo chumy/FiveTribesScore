@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FiveTribesScore</string>
+    <string name="app_name">Five Tribes Score</string>
     <string name="jugador1">Jugador 1</string>
     <string name="jugdaor2">Jugador 2</string>
     <string name="jugador3">Jugador 3</string>
@@ -7,5 +7,15 @@
     <string name="valor_0">0</string>
     <string name="btn_actualizar">Actualizar</string>
     <string name="tit_actualizar">Introduce un nuevo valor</string>
+    <string name="Jugadores">Jugadores</string>
+    <string name="nobles">Nobles</string>
+    <string name="sabios">Sabios</string>
+    <string name="camellos">Camellos</string>
+    <string name="djins">Djins</string>
+    <string name="castillos">Castillos</string>
+    <string name="monedas">Monedas</string>
+    <string name="mercado">Mercado</string>
+    <string name="palmeras">Palmeras</string>
+    <string name="total">Total</string>
 
 </resources>

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             final TextView jugador;
             final int resID = getResources().getIdentifier("tv_jugador"+i, "id", getPackageName());
 
-            jugador = (TextView) findViewById(resID);
+            jugador = findViewById(resID);
 
             jugador.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,18 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
         //Numericos
 
-        for (int j=0; j < numericos.length; j++) {
+        for (String numerico : numericos) {
 
             for (int i = 1; i < 5; i++) {
                 final TextView jugador;
-                final int resID = getResources().getIdentifier("tv_"+numericos[j] + i, "id", getPackageName());
+                final int resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
 
-                jugador = (TextView) findViewById(resID);
+                jugador = findViewById(resID);
 
                 jugador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String valor = (jugador.getText().equals("0") ) ? "" : jugador.getText().toString();
+                        String valor = (jugador.getText().equals("0")) ? "" : jugador.getText().toString();
                         et_modal.setText(valor);
                         showModal(getResources().getString(R.string.tit_actualizar), valor, resID, "number");
                     }
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             final TextView tv_modal;
             //int resID = getResources().getIdentifier(id, "id", getPackageName());
 
-            tv_modal = (TextView) findViewById(resID);
+            tv_modal = findViewById(resID);
 
             modal_text.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
                 @Override
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             final TextView tv_modal;
             //int resID = getResources().getIdentifier(id, "id", getPackageName());
 
-            tv_modal = (TextView) findViewById(resID);
+            tv_modal = findViewById(resID);
 
             modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
                 @Override
@@ -122,20 +122,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void UpdateTotales(){
-        Integer valor=0;
+        int valor=0;
         int resID;
         TextView tv_aux;
         for (int i = 1; i<5; i++) {
-            for (int j = 0; j < numericos.length; j++) {
-                resID = getResources().getIdentifier("tv_"+numericos[j] + i, "id", getPackageName());
-                tv_aux = (TextView) findViewById(resID);
-                String tmp_value = (tv_aux.getText().toString().equals("") ) ? "0" : tv_aux.getText().toString();
+            for (String numerico : numericos) {
+                resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
+                tv_aux = findViewById(resID);
+                String tmp_value = (tv_aux.getText().toString().equals("")) ? "0" : tv_aux.getText().toString();
                 tv_aux.setText(tmp_value);
                 valor += Integer.parseInt(tmp_value);
             }
             resID = getResources().getIdentifier("tv_total" + i, "id", getPackageName());
-            tv_aux = (TextView) findViewById(resID);
-            tv_aux.setText(valor.toString());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(valor);
             valor = 0;
 
         }
