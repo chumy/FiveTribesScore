@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FiveTribesScore</string>
+    <string name="jugador1">Jugador 1</string>
+    <string name="jugdaor2">Jugador 2</string>
+    <string name="jugador3">Jugador 3</string>
+    <string name="jugador4">Jugador 4</string>
+    <string name="valor_0">0</string>
+    <string name="btn_actualizar">Actualizar</string>
+    <string name="tit_actualizar">Introduce un nuevo valor</string>
+
+</resources>
