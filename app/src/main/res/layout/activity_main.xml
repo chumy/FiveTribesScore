@@ -34,7 +34,7 @@
                     android:id="@+id/iVtitulo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/titulo"
@@ -44,33 +44,36 @@
                     android:id="@+id/tv_jugador1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:text="@string/jugador1"
-                    android:textSize="14sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_jugador2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:text="@string/jugdaor2"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_jugador3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:text="@string/jugador3"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_jugador4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:text="@string/jugador4"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -91,7 +94,7 @@
                     android:id="@+id/ivMonedas"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:background="#B784F0FF"
                     android:scaleType="fitXY"
@@ -102,40 +105,40 @@
                     android:id="@+id/tv_moneda1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_moneda2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_moneda3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_moneda4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -153,7 +156,7 @@
                     android:id="@+id/iVNobles"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/nobles"
@@ -163,40 +166,40 @@
                     android:id="@+id/tv_noble1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_noble2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_noble3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_noble4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -214,7 +217,7 @@
                     android:id="@+id/ivSabios"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/sabios"
@@ -224,40 +227,40 @@
                     android:id="@+id/tv_sabio1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_sabio2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_sabio3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_sabio4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -275,7 +278,7 @@
                     android:id="@+id/ivDjins"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/djins"
@@ -286,40 +289,40 @@
                     android:id="@+id/tv_djin1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_djin2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_djin3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_djin4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -337,7 +340,7 @@
                     android:id="@+id/ivPalmeras"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/palmeras"
@@ -347,40 +350,40 @@
                     android:id="@+id/tv_palmera1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_palmera2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_palmera3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_palmera4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -398,7 +401,7 @@
                     android:id="@+id/ivCastillos"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/castillos"
@@ -408,40 +411,40 @@
                     android:id="@+id/tv_castillo1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_castillo2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_castillo3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_castillo4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -459,7 +462,7 @@
                     android:id="@+id/ivCamellos"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/camellos"
@@ -469,40 +472,40 @@
                     android:id="@+id/tv_camello1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_camello2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_camello3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_camello4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -521,7 +524,7 @@
                     android:id="@+id/ivMercado"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/mercado"
@@ -531,40 +534,40 @@
                     android:id="@+id/tv_mercado1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_mercado2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_mercado3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_mercado4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -581,7 +584,7 @@
                     android:id="@+id/ivTotales"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="24"
+                    android:layout_weight="28"
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     app:srcCompat="@mipmap/total"
@@ -591,40 +594,40 @@
                     android:id="@+id/tv_total1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_total2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_total3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_total4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="19"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:text="@string/valor_0"
-                    android:textSize="24sp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
