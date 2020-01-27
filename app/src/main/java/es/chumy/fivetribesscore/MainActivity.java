@@ -60,13 +60,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toast.makeText(getApplicationContext(), "Evento on Create "  , Toast.LENGTH_LONG).show();
 
-        jugadores = new Jugador[]{
-                new Jugador(getResources().getString(R.string.jugador1)) ,
-                new Jugador(getResources().getString(R.string.jugador2)),
-                new Jugador(getResources().getString(R.string.jugador3)),
-                new Jugador(getResources().getString(R.string.jugador4))
-        };
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            int valor = getIntent().getIntExtra("valor",0);
+            String tipo =  getIntent().getStringExtra("tipo");
+            int jugador = getIntent().getIntExtra("jugador",0);
+
+            jugadores[jugador].setValue(valor,tipo);
+
+        }
+        else {
+            jugadores = new Jugador[]{
+                    new Jugador(getResources().getString(R.string.jugador1)),
+                    new Jugador(getResources().getString(R.string.jugador2)),
+                    new Jugador(getResources().getString(R.string.jugador3)),
+                    new Jugador(getResources().getString(R.string.jugador4))
+            };
+        }
 
         modal = new AlertDialog.Builder(this).create();
         et_modal = new EditText(this);
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Integer valor = jugadores[jugId].getValue(numerico);
                         et_modal.setText(valor.toString());
+                        //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
                         showNumberPickerDialog(numerico, jugadores[jugId].getValue(numerico), jugId);
 
                     }
@@ -363,9 +378,9 @@ public class MainActivity extends AppCompatActivity {
 
             //Totales
             int total = 0;
-            for (int j=0; j < numericos.length; j++){
+            for (String numerico : numericos) {
 
-                resID = getResources().getIdentifier("tv_" + numericos[j] + i, "id", getPackageName());
+                resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
                 tv_aux = findViewById(resID);
                 total = total + Integer.parseInt(tv_aux.getText().toString());
             }
@@ -424,41 +439,33 @@ public class MainActivity extends AppCompatActivity {
         return p1.getCastillos() * p1.getMultCastillo();
     }
 
+
+
     public void showNumberPickerDialog(String tipo, int numero, int jugId) {
 
         // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new NumPickerActivity();
+        DialogFragment dialog = new SelectorNumActivity();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
-        args.putInt("num", numero);
+        args.putInt("valor", numero);
         args.putString("tipo", tipo);
-        args.putInt("jugId", jugId);
+        args.putInt("jugador", jugId);
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
 
 
-/*
-        Intent intent = new Intent(this, NumPickerActivity.class);
-        intent.putExtra("num", jugador);
-        intent.putExtra("tipo", tipo);
-        startActivityForResult(intent, 1234);*/
 
     }
 
-    /*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode,resultCode,data);
-
-        Toast.makeText(this, "Request  "  + requestCode + " Result " + resultCode, LENGTH_LONG).show();
-        if (requestCode==1234 && resultCode==RESULT_OK) {
-            String res = data.getExtras().getString("resultado");
-            Toast.makeText(this, "Recibido el "  + res, LENGTH_LONG).show();
-        }
-    }*/
 
 
+    public void showCustomNumberPicker(String tipo, int numero, int jugId) {
+        Intent i = new Intent(this, SelectorNumActivity.class);
+        i.putExtra("jugador", jugId);
+        i.putExtra("tipo", tipo);
+        i.putExtra("valor", 5);
+        startActivity(i);
+    }
 
 }
