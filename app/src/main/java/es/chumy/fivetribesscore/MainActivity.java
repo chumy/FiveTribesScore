@@ -2,36 +2,71 @@ package es.chumy.fivetribesscore;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import static android.widget.Toast.*;
+
 public class MainActivity extends AppCompatActivity {
 
-    //TextView tv_jugador1,tv_jugador2, tv_jugador3, tv_jugador4;
-    //TextView tv_jugador1,tv_jugador2, tv_jugador3, tv_moneda;
+    TextView tv_jugador1,tv_jugador2, tv_jugador3, tv_jugador4;
 
-    String[] numericos = {"moneda", "noble" , "sabio", "djin", "castillo", "palmera", "camello", "mercado"};
+    String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello", "mercado"};
 
     AlertDialog modal, modal_text;
     EditText et_modal, et_modal_text;
-    String salida;
+
+
+    public Jugador[] jugadores;
+
+    public Djinn[] DjinList = new Djinn[]{
+            new Djinn("Al-Amin", 5),
+            new Djinn("Anun-Nak", 8),
+            new Djinn("Ba'Ai", 6),
+            new Djinn("Boaz", 6),
+            new Djinn("Bouraq", 6),
+            new Djinn("Echidna", 4),
+            new Djinn("Enki", 8),
+            new Djinn("Hagis", 10),
+            new Djinn("Haurvatat", 8, 1,2, 5),
+            new Djinn("Iblis", 8),
+            new Djinn("Jafaar", 6, 3,2,3),
+            new Djinn("Kandicha", 6),
+            new Djinn("Kumarbi", 6),
+            new Djinn("Lamia", 10),
+            new Djinn("Leta", 4),
+            new Djinn("Marid", 6),
+            new Djinn("Monkir", 6),
+            new Djinn("Nekir", 6),
+            new Djinn("Shamhat", 6, 1 ,4 ,3),
+            new Djinn("Sibittis", 4),
+            new Djinn("Sidar", 8),
+            new Djinn("Utug", 4)
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*tv_jugador1 = (TextView) findViewById(R.id.tv_jugador1);
-        tv_jugador2 = (TextView) findViewById(R.id.tv_jugador2);
-        tv_jugador3 = (TextView) findViewById(R.id.tv_jugador3);
-        tv_jugador4 = (TextView) findViewById(R.id.tv_jugador4);*/
+
+        jugadores = new Jugador[]{
+                new Jugador(getResources().getString(R.string.jugador1)) ,
+                new Jugador(getResources().getString(R.string.jugador2)),
+                new Jugador(getResources().getString(R.string.jugador3)),
+                new Jugador(getResources().getString(R.string.jugador4))
+        };
 
         modal = new AlertDialog.Builder(this).create();
         et_modal = new EditText(this);
@@ -44,88 +79,232 @@ public class MainActivity extends AppCompatActivity {
         modal_text.setView(et_modal_text);
 
 
+
+        //Dibujar
+        UpdateTotal();
+
+
+
         // Jugadores
 
-        for (int i=1;i<5;i++) {
+        for (int i=0;i<jugadores.length;i++) {
             final TextView jugador;
             final int resID = getResources().getIdentifier("tv_jugador"+i, "id", getPackageName());
+            final int jugId = i;
+
 
             jugador = findViewById(resID);
 
             jugador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
                     et_modal_text.setText(jugador.getText());
-                    showModal(getResources().getString(R.string.tit_actualizar), jugador.getText().toString(), resID, "text");
+                    showModal(getResources().getString(R.string.tit_actualizar), jugador.getText().toString(), jugId, "jugadores");
+                    //Toast.makeText(getApplicationContext(), "Nombre del jugador " + jugId + " es "+ jugador.getText().toString() , Toast.LENGTH_LONG).show();
                 }
             });
+
         }
 
-        //Numericos
 
-        for (String numerico : numericos) {
 
-            for (int i = 1; i < 5; i++) {
+        for (final String numerico : numericos) {
+
+            for (int i = 0; i < jugadores.length; i++) {
                 final TextView jugador;
                 final int resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
+                final int jugId = i;
 
                 jugador = findViewById(resID);
 
                 jugador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String valor = (jugador.getText().equals("0")) ? "" : jugador.getText().toString();
-                        et_modal.setText(valor);
-                        showModal(getResources().getString(R.string.tit_actualizar), valor, resID, "number");
+                        Integer valor = jugadores[jugId].getValue(numerico);
+                        et_modal.setText(valor.toString());
+                        showNumberPickerDialog(numerico, jugadores[jugId].getValue(numerico), jugId);
+
                     }
                 });
             }
         }
 
-
     }
 
-    public void showModal(String titulo, String valor, int resID, String tipo ){
-        if (tipo.equals("text")) {
-            modal_text.setTitle(titulo);
-            modal_text.setView(et_modal_text);
-            final TextView tv_modal;
-            //int resID = getResources().getIdentifier(id, "id", getPackageName());
+    public void showModal(String titulo, String valor, int id, String tipo ){
+        final TextView tv_modal;
+        final int resID;
+        final int judId = id;
+        switch (tipo) {
+            case "jugadores":
+                modal_text.setTitle(titulo);
+                modal_text.setView(et_modal_text);
 
-            tv_modal = findViewById(resID);
+                resID = getResources().getIdentifier("tv_jugador"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
 
-            modal_text.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    tv_modal.setText(et_modal_text.getText());
-                }
-            });
-            modal_text.show();
-        }else{
-            // Parte numerica
-            modal.setTitle(titulo);
-            modal.setView(et_modal);
-            final TextView tv_modal;
-            //int resID = getResources().getIdentifier(id, "id", getPackageName());
+                modal_text.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        tv_modal.setText(et_modal_text.getText());
+                        jugadores[judId].setNombre( et_modal_text.getText().toString() );
+                    }
+                });
+                modal_text.show();
+                break;
+            case "noble":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_noble"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
 
-            tv_modal = findViewById(resID);
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setNobles( (var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        setMaxNoble(judId);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
 
-            modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    tv_modal.setText(et_modal.getText());
-                    UpdateTotales();
-                }
-            });
-            modal.show();
+                break;
+            case "sabio":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_sabio"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setCamellos((var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            case "palmera":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_palmera"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setPalmeras((var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            case "castillo":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_castillo"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setCastillos( (var.length() == 0) ? 0 : Integer.parseInt(var));
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            case "camello":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_camello"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setCamellos(  (var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            case "moneda":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_moneda"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setMonedas( (var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            case "mercado":
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_mercado"+id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String var = et_modal.getText().toString();
+                        jugadores[judId].setMercado ( (var.length() == 0) ? 0 : Integer.parseInt(var) );
+                        tv_modal.setText(var);
+                        UpdateTotal();
+                    }
+                });
+                modal.show();
+
+                break;
+            default:
+                modal.setTitle(titulo);
+                modal.setView(et_modal);
+                resID = getResources().getIdentifier("tv_" + tipo +id, "id", getPackageName());
+                tv_modal = findViewById(resID);
+
+                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        tv_modal.setText(et_modal.getText());
+                         UpdateTotal();
+                     }
+                    });
+                 modal.show();
+
         }
+
     }
 
     public void UpdateTotales(){
         int valor=0;
         int resID;
         TextView tv_aux;
-        for (int i = 1; i<5; i++) {
+        for (int i = 0; i<jugadores.length; i++) {
             for (String numerico : numericos) {
                 resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
                 tv_aux = findViewById(resID);
@@ -140,6 +319,145 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public void UpdateTotal(){
+
+        for (int i = 0; i <  jugadores.length ; i++ ) {
+
+            // Nombres
+            int resID = getResources().getIdentifier("tv_jugador"+i, "id", getPackageName());
+            TextView tv_aux = findViewById(resID);
+            tv_aux.setText(jugadores[i].getNombre());
+
+            // Nobles
+            resID = getResources().getIdentifier("tv_noble"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(CalculateNobles(i) ) );
+
+            // Monedas
+            resID = getResources().getIdentifier("tv_moneda"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(jugadores[i].getMonedas()) );
+
+            // Sabios
+            resID = getResources().getIdentifier("tv_sabio"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(CalculateSabios(i) ) );
+
+            // Palmeras
+            resID = getResources().getIdentifier("tv_palmera"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(CalculatePalmeras(i) ) );
+
+            // Castillos
+            resID = getResources().getIdentifier("tv_castillo"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(CalculateCastillo(i) ) );
+
+
+            // Camellos
+            resID = getResources().getIdentifier("tv_camello"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(jugadores[i].getCamellos()) );
+
+
+            //Totales
+            int total = 0;
+            for (int j=0; j < numericos.length; j++){
+
+                resID = getResources().getIdentifier("tv_" + numericos[j] + i, "id", getPackageName());
+                tv_aux = findViewById(resID);
+                total = total + Integer.parseInt(tv_aux.getText().toString());
+            }
+            resID = getResources().getIdentifier("tv_total"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(total) );
+
+        }
+
+    }
+
+    public int CalculateNobles(int jugador){
+        Jugador p1 = jugadores[jugador];
+        return p1.getNobles() * p1.getMultNobles() + ( (p1.isMaxNobles()) ? 10 : 0);
+    }
+
+
+    public void setMaxNoble(int jugador){
+
+        int idMax = -1;
+        int nobleMax = 0;
+
+        //Buscamos el maximo, en caso de igual valor no hay maximo
+        for (int i=0; i < jugadores.length; i++) {
+
+            jugadores[i].setMaxNobles(false);
+
+            if (jugadores[i].getNobles() > nobleMax) {
+                nobleMax = jugadores[i].getNobles();
+                idMax = i;
+            }else if (jugadores[i].getNobles() == nobleMax) {
+                idMax = -1;
+            }
+
+        }
+
+        // Si solo hay un maximo, se informa
+        if (idMax >= 0) {
+            jugadores[idMax].setMaxNobles(true);
+        }
+
+
+    }
+
+    public int CalculateSabios(int jugador){
+        Jugador p1 = jugadores[jugador];
+        return p1.getSabios() * p1.getMultSabios();
+    }
+    public int CalculatePalmeras(int jugador){
+        Jugador p1 = jugadores[jugador];
+        return p1.getPalmeras() * p1.getMultPalmera();
+    }
+
+    public int CalculateCastillo(int jugador){
+        Jugador p1 = jugadores[jugador];
+        return p1.getCastillos() * p1.getMultCastillo();
+    }
+
+    public void showNumberPickerDialog(String tipo, int numero, int jugId) {
+
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new NumPickerActivity();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("num", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugId", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
+
+
+/*
+        Intent intent = new Intent(this, NumPickerActivity.class);
+        intent.putExtra("num", jugador);
+        intent.putExtra("tipo", tipo);
+        startActivityForResult(intent, 1234);*/
+
+    }
+
+    /*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode,resultCode,data);
+
+        Toast.makeText(this, "Request  "  + requestCode + " Result " + resultCode, LENGTH_LONG).show();
+        if (requestCode==1234 && resultCode==RESULT_OK) {
+            String res = data.getExtras().getString("resultado");
+            Toast.makeText(this, "Recibido el "  + res, LENGTH_LONG).show();
+        }
+    }*/
 
 
 
