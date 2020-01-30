@@ -6,6 +6,8 @@ import es.chumy.fivetribesscore.Djinn;
 
 class Jugador {
 
+    private static final int[] valores=new int[]{0,1,3,7,13,21,30,40,50,60};
+
     private int sabios, nobles, monedas, camellos, castillos, palmeras;
     private Djinn[] djinns;
     private String nombre;
@@ -220,7 +222,27 @@ class Jugador {
     }
 
     public int getMercadoValue(){
-        return 0;
+        int num = 0;
+        int[] serie = new int[getMaxMercadoCantidad()];
+
+        for (int i=0; i< getMaxMercadoCantidad();i++){
+            for (int j = 0; j<this.mercado.length; j++ ){
+                if (this.mercado[j].getCantidad() > i){
+                    serie[i]++;
+                }
+
+            }
+            num = num + valores[serie[i]];
+        }
+
+        return num;
     }
 
+    private int getMaxMercadoCantidad(){
+        int cantidad = 0;
+        for (int j = 0; j<this.mercado.length; j++ ){
+            if (this.mercado[j].getCantidad() > cantidad) {cantidad = this.mercado[j].getCantidad();}
+        }
+        return cantidad;
+    }
 }

@@ -176,6 +176,7 @@ public class MercadoPickerFragment  extends DialogFragment {
 
     public void saveMercado(int jugId){
             ((MainActivity)getActivity()).jugadores[jugId].setMercado(mercanciaList);
+        ((MainActivity)getActivity()).UpdateTotal();
 
     }
 

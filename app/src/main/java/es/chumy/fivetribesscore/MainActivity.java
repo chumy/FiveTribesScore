@@ -15,18 +15,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tv_jugador1,tv_jugador2, tv_jugador3, tv_jugador4;
-
-    String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello"};
-
-    AlertDialog modal, modal_text;
-    EditText et_modal, et_modal_text;
+    public static final String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello"};
 
 
-    public Jugador[] jugadores;
-    //public Mercancia[] MercanciaList;
-
-    public Djinn[] DjinList = new Djinn[]{
+    public static final Djinn[] DjinList = new Djinn[]{
             new Djinn("Al-Amin", 5),
             new Djinn("Anun-Nak", 8),
             new Djinn("Ba'Ai", 6),
@@ -50,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
             new Djinn("Sidar", 8),
             new Djinn("Utug", 4)
     };
+
+
+
+    AlertDialog modal, modal_text;
+    EditText et_modal, et_modal_text;
+
+
+    public Jugador[] jugadores;
+    //public Mercancia[] MercanciaList;
+
 
 
     @Override
@@ -154,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
                 jugador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Integer valor = jugadores[jugId].getValue(numerico);
-                        et_modal.setText(valor.toString());
+                        //Integer valor = jugadores[jugId].getValue(numerico);
+                        //et_modal.setText(valor.toString());
                         //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
                         showNumberPickerDialog(numerico, jugadores[jugId].getValue(numerico), jugId);
 
@@ -175,8 +177,8 @@ public class MainActivity extends AppCompatActivity {
             jugador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Integer valor = jugadores[jugId].getMercadoValue();
-                    et_modal.setText(valor.toString());
+                    //Integer valor = jugadores[jugId].getMercadoValue();
+                    //et_modal.setText(valor.toString());
                     //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
                     showMercadoPickerDialog(jugId);
 
@@ -393,6 +395,11 @@ public class MainActivity extends AppCompatActivity {
             resID = getResources().getIdentifier("tv_castillo"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(CalculateCastillo(i) ) );
+
+            //Mercado
+            resID = getResources().getIdentifier("tv_mercado"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(jugadores[i].getMercadoValue() ) );
 
 
             // Camellos
