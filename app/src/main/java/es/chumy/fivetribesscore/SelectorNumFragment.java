@@ -1,9 +1,6 @@
 package es.chumy.fivetribesscore;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-public class SelectorNumActivity extends DialogFragment {
+public class SelectorNumFragment extends DialogFragment {
 
     TextView tv1;
     int valor, jugador;
@@ -33,7 +30,7 @@ public class SelectorNumActivity extends DialogFragment {
         // Get the layout inflater
         LayoutInflater inflater = requireActivity().getLayoutInflater();
 
-        final View view = inflater.inflate(R.layout.activity_numpicker, null);
+        final View view = inflater.inflate(R.layout.dialog_numpicker, null);
         valor = getArguments().getInt("valor",0);
         tipo = getArguments().getString("tipo");
         jugador = getArguments().getInt("jugador",0);
@@ -110,7 +107,7 @@ public class SelectorNumActivity extends DialogFragment {
         ((MainActivity)getActivity()).jugadores[jugador].setValue(num, tipo);
         ((MainActivity)getActivity()).setMaxNoble(jugador);
         ((MainActivity)getActivity()).UpdateTotal();
-        SelectorNumActivity.this.getDialog().cancel();
+        SelectorNumFragment.this.getDialog().cancel();
 
 /*
 

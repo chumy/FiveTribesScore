@@ -10,25 +10,21 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import static android.widget.Toast.*;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView tv_jugador1,tv_jugador2, tv_jugador3, tv_jugador4;
 
-    String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello", "mercado"};
+    String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello"};
 
     AlertDialog modal, modal_text;
     EditText et_modal, et_modal_text;
 
 
     public Jugador[] jugadores;
+    //public Mercancia[] MercanciaList;
 
     public Djinn[] DjinList = new Djinn[]{
             new Djinn("Al-Amin", 5),
@@ -55,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             new Djinn("Utug", 4)
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        if (extras != null) {
+        /*if (extras != null) {
 
             int valor = getIntent().getIntExtra("valor",0);
             String tipo =  getIntent().getStringExtra("tipo");
@@ -73,14 +70,25 @@ public class MainActivity extends AppCompatActivity {
             jugadores[jugador].setValue(valor,tipo);
 
         }
-        else {
+        else {*/
             jugadores = new Jugador[]{
                     new Jugador(getResources().getString(R.string.jugador1)),
                     new Jugador(getResources().getString(R.string.jugador2)),
                     new Jugador(getResources().getString(R.string.jugador3)),
                     new Jugador(getResources().getString(R.string.jugador4))
             };
-        }
+        //}
+       /* MercanciaList = new Mercancia[]{
+                new Mercancia(getResources().getString(R.string.marfil), 0, 2),
+                new Mercancia(getResources().getString(R.string.seda), 0, 2),
+                new Mercancia(getResources().getString(R.string.oro), 0, 2),
+                new Mercancia(getResources().getString(R.string.papiros), 0, 4),
+                new Mercancia(getResources().getString(R.string.seda), 0, 4),
+                new Mercancia(getResources().getString(R.string.especias), 0, 4),
+                new Mercancia(getResources().getString(R.string.pescado), 0, 6),
+                new Mercancia(getResources().getString(R.string.trigo), 0, 6),
+                new Mercancia(getResources().getString(R.string.ceramica), 0, 6)
+        };*/
 
         modal = new AlertDialog.Builder(this).create();
         et_modal = new EditText(this);
@@ -106,6 +114,16 @@ public class MainActivity extends AppCompatActivity {
             final int resID = getResources().getIdentifier("tv_jugador"+i, "id", getPackageName());
             final int jugId = i;
 
+            jugadores[i].setMercado(new Mercancia[]{
+                    new Mercancia(getResources().getString(R.string.marfil), 0, 2),
+                    new Mercancia(getResources().getString(R.string.seda), 0, 2),
+                    new Mercancia(getResources().getString(R.string.oro), 0, 2),
+                    new Mercancia(getResources().getString(R.string.papiros), 0, 4),
+                    new Mercancia(getResources().getString(R.string.seda), 0, 4),
+                    new Mercancia(getResources().getString(R.string.especias), 0, 4),
+                    new Mercancia(getResources().getString(R.string.pescado), 0, 6),
+                    new Mercancia(getResources().getString(R.string.trigo), 0, 6),
+                    new Mercancia(getResources().getString(R.string.ceramica), 0, 6)});
 
             jugador = findViewById(resID);
 
@@ -146,7 +164,31 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //Mercado
+        for (int i = 0; i < jugadores.length; i++) {
+            final TextView jugador;
+            final int resID = getResources().getIdentifier("tv_mercado"  + i, "id", getPackageName());
+            final int jugId = i;
+
+            jugador = findViewById(resID);
+
+            jugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Integer valor = jugadores[jugId].getMercadoValue();
+                    et_modal.setText(valor.toString());
+                    //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
+                    showMercadoPickerDialog(jugId);
+
+                }
+            });
+        }
+
+        //Djinns
+
     }
+
+
 
     public void showModal(String titulo, String valor, int id, String tipo ){
         final TextView tv_modal;
@@ -278,24 +320,7 @@ public class MainActivity extends AppCompatActivity {
                 modal.show();
 
                 break;
-            case "mercado":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_mercado"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
 
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setMercado ( (var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
             default:
                 modal.setTitle(titulo);
                 modal.setView(et_modal);
@@ -444,7 +469,7 @@ public class MainActivity extends AppCompatActivity {
     public void showNumberPickerDialog(String tipo, int numero, int jugId) {
 
         // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new SelectorNumActivity();
+        DialogFragment dialog = new SelectorNumFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
@@ -458,10 +483,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void showMercadoPickerDialog(int jugId) {
 
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new MercadoPickerFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "MercadoDialogFragment");
+    }
 
     public void showCustomNumberPicker(String tipo, int numero, int jugId) {
-        Intent i = new Intent(this, SelectorNumActivity.class);
+        Intent i = new Intent(this, SelectorNumFragment.class);
         i.putExtra("jugador", jugId);
         i.putExtra("tipo", tipo);
         i.putExtra("valor", 5);

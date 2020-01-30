@@ -19,6 +19,16 @@
     <string name="total">Total</string>
     <string name="cancelar">Cancelar</string>
     <string name="aceptar">Aceptar</string>
+    <string name="marfil">Marfil</string>
+    <string name="joyas">Joyas</string>
+    <string name="oro">Oro</string>
+    <string name="papiros">Papiros</string>
+    <string name="seda">Seda</string>
+    <string name="especias">Especias</string>
+    <string name="pescado">Pescado</string>
+    <string name="trigo">Trigo</string>
+    <string name="ceramica">Cerámica</string>
+    <string name="dialogoMercado">Indica que mercancias tienes</string>
 
 
 </resources>

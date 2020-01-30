@@ -4,7 +4,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_npd"
+        android:id="@+id/tvTituloMercado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -15,7 +15,7 @@
         android:id="@+id/np_npd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_npd"
+        android:layout_below="@id/tvTituloMercado"
         android:layout_gravity="center"
         android:background="#FFFFFF"
         android:orientation="vertical"

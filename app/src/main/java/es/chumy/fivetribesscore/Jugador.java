@@ -1,13 +1,16 @@
 package es.chumy.fivetribesscore;
 
+import java.lang.reflect.Array;
+
 import es.chumy.fivetribesscore.Djinn;
 
 class Jugador {
 
-    private int sabios, nobles, monedas, camellos, castillos, palmeras, mercado;
+    private int sabios, nobles, monedas, camellos, castillos, palmeras;
     private Djinn[] djinns;
     private String nombre;
     private boolean maxNobles;
+    private Mercancia[] mercado;
 
 
     Jugador(String nombre) {
@@ -20,6 +23,8 @@ class Jugador {
         this.nobles = 0;
         this.djinns = new Djinn[]{};
         this.maxNobles = false;
+        this.mercado = new Mercancia[]{};
+
 
     }
 
@@ -74,9 +79,7 @@ class Jugador {
             case "noble":
                 this.nobles = valor;
                 break;
-            case "mercado":
-                this.mercado = valor;
-                break;
+
             case "moneda":
                 this.monedas =valor;
                 break;
@@ -97,8 +100,7 @@ class Jugador {
                 return this.palmeras;
             case "noble":
                 return this.nobles;
-            case "mercado":
-                return this.mercado;
+
             case "moneda":
                 return this.monedas;
             case "camello":
@@ -156,11 +158,11 @@ class Jugador {
         this.palmeras = palmeras;
     }
 
-    public int getMercado() {
+    public Mercancia[] getMercado() {
         return mercado;
     }
 
-    public void setMercado(int mercado) {
+    public void setMercado(Mercancia[] mercado) {
         this.mercado = mercado;
     }
 
@@ -179,4 +181,46 @@ class Jugador {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getDjinnsValue(){
+        int num=0;
+        for (Djinn djinn : this.djinns) {
+            num += djinn.getPuntos();
+        }
+        return num;
+    }
+
+    public void addDjinn(Djinn djinn){
+        boolean found = false;
+
+        for (int i = 0; i<this.djinns.length; i++){
+            if (this.djinns[i].getNombre().equals(djinn.getNombre())){
+                found= true;
+                this.djinns[i] = djinn;
+            }
+        }
+        if (!found){
+            this.djinns[this.djinns.length] = djinn;
+        }
+
+    }
+
+    public void addMercancia (Mercancia mercancia){
+        boolean found = false;
+
+        for (int i = 0; i<this.mercado.length; i++){
+            if (this.mercado[i].getNombre().equals(mercancia.getNombre())){
+                found= true;
+                this.mercado[i] = mercancia;
+            }
+        }
+         if (!found){
+            this.mercado[this.mercado.length] = mercancia;
+        }
+    }
+
+    public int getMercadoValue(){
+        return 0;
+    }
+
 }
