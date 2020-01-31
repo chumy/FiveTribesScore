@@ -10,17 +10,18 @@ class Jugador {
 
     private static final int[] valores=new int[]{0,1,3,7,13,21,30,40,50,60};
 
-    private int sabios, nobles, monedas, camellos, castillos, palmeras;
+    private int sabios, nobles, camellos, castillos, palmeras;
     private List<Djinn> djinns;
     private String nombre;
     private boolean maxNobles;
     private Mercancia[] mercado;
+    private int[] monedas;
 
 
     Jugador(String nombre) {
         this.nombre = nombre;
         this.sabios = 0;
-        this.monedas = 0;
+        this.monedas = new int[]{0,0};
         this.camellos = 0;
         this.castillos = 0;
         this.palmeras = 0;
@@ -84,9 +85,6 @@ class Jugador {
                 this.nobles = valor;
                 break;
 
-            case "moneda":
-                this.monedas =valor;
-                break;
             case "camello":
                 this.camellos = valor;
                 break;
@@ -104,9 +102,6 @@ class Jugador {
                 return this.palmeras;
             case "noble":
                 return this.nobles;
-
-            case "moneda":
-                return this.monedas;
             case "camello":
                 return this.camellos;
             default:
@@ -130,11 +125,11 @@ class Jugador {
         this.nobles = nobles;
     }
 
-    public int getMonedas() {
+    public int[] getMonedas() {
         return monedas;
     }
 
-    public void setMonedas(int monedas) {
+    public void setMonedas(int[] monedas) {
         this.monedas = monedas;
     }
 

@@ -18,9 +18,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello"};
+    public static final String[] numericos = { "sabio", "castillo", "noble", "palmera", "camello"};
 
-
+    public static String[] monedas = new String[] {"1","5"};
 
     public static final List<Djinn> DjinnList = new ArrayList<Djinn>(){{
         add(new Djinn("Al-Amin", 5));
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(getApplicationContext(), "Evento on Create "  , Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Evento on Create "  , Toast.LENGTH_LONG).show();
 
         jugadores = new Jugador[]{
                 new Jugador(getResources().getString(R.string.jugador1)),
@@ -145,6 +145,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //Monedas
+        for (int i = 0; i < jugadores.length; i++) {
+            final TextView jugador;
+            final int resID = getResources().getIdentifier("tv_moneda"  + i, "id", getPackageName());
+            final int jugId = i;
+
+            jugador = findViewById(resID);
+
+            jugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showMonedaPickerDialog(jugId);
+
+                }
+            });
+        }
+
+
         //Mercado
         for (int i = 0; i < jugadores.length; i++) {
             final TextView jugador;
@@ -208,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 modal_text.show();
                 break;
-            case "noble":
+           /* case "noble":
                 modal.setTitle(titulo);
                 modal.setView(et_modal);
                 resID = getResources().getIdentifier("tv_noble"+id, "id", getPackageName());
@@ -331,7 +349,7 @@ public class MainActivity extends AppCompatActivity {
                          UpdateTotal();
                      }
                     });
-                 modal.show();
+                 modal.show();*/
 
         }
 
@@ -359,8 +377,8 @@ public class MainActivity extends AppCompatActivity {
             // Monedas
             resID = getResources().getIdentifier("tv_moneda"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
-            tv_aux.setText(String.valueOf(jugadores[i].getMonedas()) );
-            total+=jugadores[i].getMonedas();
+            tv_aux.setText(String.valueOf(CalculateMonedas(i)) );
+            total+=CalculateMonedas(i);
 
             // Sabios
             resID = getResources().getIdentifier("tv_sabio"+i, "id", getPackageName());
@@ -456,6 +474,14 @@ public class MainActivity extends AppCompatActivity {
         return p1.getCastillos() * p1.getMultCastillo();
     }
 
+    public int CalculateMonedas (int jugador){
+        Jugador p1 = jugadores[jugador];
+        int resultado=0;
+        for (int i=0;i < monedas.length; i++){
+            resultado+= p1.getMonedas()[i]*Integer.parseInt(monedas[i]);
+        }
+        return resultado;
+    }
 
 
     public void showNumberPickerDialog(String tipo, int numero, int jugId) {
@@ -469,10 +495,22 @@ public class MainActivity extends AppCompatActivity {
         args.putString("tipo", tipo);
         args.putInt("jugador", jugId);
         dialog.setArguments(args);
-        dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
 
 
 
+    }
+
+    private void showMonedaPickerDialog(int jugId) {
+
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new MonedaPickerFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "MonedaDialogFragment");
     }
 
     private void showMercadoPickerDialog(int jugId) {
