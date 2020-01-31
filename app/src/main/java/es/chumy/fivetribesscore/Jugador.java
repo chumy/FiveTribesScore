@@ -1,6 +1,8 @@
 package es.chumy.fivetribesscore;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import es.chumy.fivetribesscore.Djinn;
 
@@ -9,7 +11,7 @@ class Jugador {
     private static final int[] valores=new int[]{0,1,3,7,13,21,30,40,50,60};
 
     private int sabios, nobles, monedas, camellos, castillos, palmeras;
-    private Djinn[] djinns;
+    private List<Djinn> djinns;
     private String nombre;
     private boolean maxNobles;
     private Mercancia[] mercado;
@@ -23,7 +25,7 @@ class Jugador {
         this.castillos = 0;
         this.palmeras = 0;
         this.nobles = 0;
-        this.djinns = new Djinn[]{};
+        this.djinns = new ArrayList<>();
         this.maxNobles = false;
         this.mercado = new Mercancia[]{};
 
@@ -168,13 +170,9 @@ class Jugador {
         this.mercado = mercado;
     }
 
-    public Djinn[] getDjinns() {
-        return djinns;
-    }
+    public List<Djinn> getDjinns() { return djinns; }
 
-    public void setDjinns(Djinn[] djinns) {
-        this.djinns = djinns;
-    }
+    public void setDjinns(List<Djinn> djinns) { this.djinns = djinns; }
 
     public String getNombre() {
         return nombre;
@@ -193,17 +191,14 @@ class Jugador {
     }
 
     public void addDjinn(Djinn djinn){
-        boolean found = false;
 
-        for (int i = 0; i<this.djinns.length; i++){
-            if (this.djinns[i].getNombre().equals(djinn.getNombre())){
-                found= true;
-                this.djinns[i] = djinn;
-            }
-        }
-        if (!found){
-            this.djinns[this.djinns.length] = djinn;
-        }
+        this.djinns.add(djinn);
+
+    }
+
+    public void removeDjinn(Djinn djinn){
+
+        this.djinns.remove(djinn);
 
     }
 

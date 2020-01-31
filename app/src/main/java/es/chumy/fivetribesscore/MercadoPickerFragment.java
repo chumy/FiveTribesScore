@@ -1,15 +1,16 @@
 package es.chumy.fivetribesscore;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
+
 import android.graphics.Color;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.NumberPicker;
+import android.widget.ImageButton;
+
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -73,16 +74,23 @@ public class MercadoPickerFragment  extends DialogFragment {
                 tv_mercancia.setText(mercanciaList[i].getNombre());
 
 
-                Button btn_plus = new Button(getContext());
-                btn_plus.setText(">");
+                //@android:drawable/ic_media_ff
+                ImageButton btn_plus = new ImageButton(getContext());
+                btn_plus.setImageResource(android.R.drawable.ic_media_next);
 
+                ImageButton btn_minus = new ImageButton(getContext());
+                btn_minus.setImageResource(android.R.drawable.ic_media_previous);
 
-                Button btn_minus = new Button(getContext());
-                btn_minus.setText("<");
+                //Button btn_plus = new Button(getContext());
+                //btn_plus.setText(">");
+
+                //Button btn_minus = new Button(getContext());
+                //btn_minus.setText("<");
 
                 final TextView tv_valor = new TextView(getContext());
                 tv_valor.setText(String.valueOf(mercanciaList[i].getCantidad()));
-
+                tv_valor.setTextSize(20);
+                tv_valor.setPadding(0,10,0,0);
 
                 btn_plus.setOnClickListener(new View.OnClickListener() {
                                                 @Override
@@ -102,10 +110,13 @@ public class MercadoPickerFragment  extends DialogFragment {
                 child.addView(btn_minus);
                 child.addView(tv_valor);
                 child.addView(btn_plus);
+
                 parent.addView(child);
 
 
             }
+
+
 
             Button btn_ok = view.findViewById(R.id.bt_aceptar);
             btn_ok.setOnClickListener(new View.OnClickListener() {

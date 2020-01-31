@@ -13,35 +13,39 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String[] numericos = {"moneda", "sabio", "castillo", "noble", "palmera", "camello"};
 
 
-    public static final Djinn[] DjinList = new Djinn[]{
-            new Djinn("Al-Amin", 5),
-            new Djinn("Anun-Nak", 8),
-            new Djinn("Ba'Ai", 6),
-            new Djinn("Boaz", 6),
-            new Djinn("Bouraq", 6),
-            new Djinn("Echidna", 4),
-            new Djinn("Enki", 8),
-            new Djinn("Hagis", 10),
-            new Djinn("Haurvatat", 8, 1,2, 5),
-            new Djinn("Iblis", 8),
-            new Djinn("Jafaar", 6, 3,2,3),
-            new Djinn("Kandicha", 6),
-            new Djinn("Kumarbi", 6),
-            new Djinn("Lamia", 10),
-            new Djinn("Leta", 4),
-            new Djinn("Marid", 6),
-            new Djinn("Monkir", 6),
-            new Djinn("Nekir", 6),
-            new Djinn("Shamhat", 6, 1 ,4 ,3),
-            new Djinn("Sibittis", 4),
-            new Djinn("Sidar", 8),
-            new Djinn("Utug", 4)
-    };
+
+    public static final List<Djinn> DjinnList = new ArrayList<Djinn>(){{
+        add(new Djinn("Al-Amin", 5));
+        add(new Djinn("Anun-Nak", 8));
+        add(new Djinn("Ba'Ai", 6));
+        add(new Djinn("Boaz", 6));
+        add(new Djinn("Bouraq", 6));
+        add(new Djinn("Echidna", 4));
+        add(new Djinn("Enki", 8));
+        add(new Djinn("Hagis", 10));
+        add(new Djinn("Haurvatat", 8, 1,2, 5));
+        add(new Djinn("Iblis", 8));
+        add(new Djinn("Jafaar", 6, 3,2,3));
+        add(new Djinn("Kandicha", 6));
+        add(new Djinn("Kumarbi", 6));
+        add(new Djinn("Lamia", 10));
+        add(new Djinn("Leta", 4));
+        add(new Djinn("Marid", 6));
+        add(new Djinn("Monkir", 6));
+        add(new Djinn("Nekir", 6));
+        add(new Djinn("Shamhat", 6, 1 ,4 ,3));
+        add(new Djinn("Sibittis", 4));
+        add(new Djinn("Sidar", 8));
+        add(new Djinn("Utug", 4));
+    }};
 
 
 
@@ -50,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public Jugador[] jugadores;
-    //public Mercancia[] MercanciaList;
-
 
 
     @Override
@@ -61,36 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Evento on Create "  , Toast.LENGTH_LONG).show();
 
-        Bundle extras = getIntent().getExtras();
+        jugadores = new Jugador[]{
+                new Jugador(getResources().getString(R.string.jugador1)),
+                new Jugador(getResources().getString(R.string.jugador2)),
+                new Jugador(getResources().getString(R.string.jugador3)),
+                new Jugador(getResources().getString(R.string.jugador4))
+        };
 
-        /*if (extras != null) {
 
-            int valor = getIntent().getIntExtra("valor",0);
-            String tipo =  getIntent().getStringExtra("tipo");
-            int jugador = getIntent().getIntExtra("jugador",0);
-
-            jugadores[jugador].setValue(valor,tipo);
-
-        }
-        else {*/
-            jugadores = new Jugador[]{
-                    new Jugador(getResources().getString(R.string.jugador1)),
-                    new Jugador(getResources().getString(R.string.jugador2)),
-                    new Jugador(getResources().getString(R.string.jugador3)),
-                    new Jugador(getResources().getString(R.string.jugador4))
-            };
-        //}
-       /* MercanciaList = new Mercancia[]{
-                new Mercancia(getResources().getString(R.string.marfil), 0, 2),
-                new Mercancia(getResources().getString(R.string.seda), 0, 2),
-                new Mercancia(getResources().getString(R.string.oro), 0, 2),
-                new Mercancia(getResources().getString(R.string.papiros), 0, 4),
-                new Mercancia(getResources().getString(R.string.seda), 0, 4),
-                new Mercancia(getResources().getString(R.string.especias), 0, 4),
-                new Mercancia(getResources().getString(R.string.pescado), 0, 6),
-                new Mercancia(getResources().getString(R.string.trigo), 0, 6),
-                new Mercancia(getResources().getString(R.string.ceramica), 0, 6)
-        };*/
 
         modal = new AlertDialog.Builder(this).create();
         et_modal = new EditText(this);
@@ -127,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
                     new Mercancia(getResources().getString(R.string.trigo), 0, 6),
                     new Mercancia(getResources().getString(R.string.ceramica), 0, 6)});
 
+
+
             jugador = findViewById(resID);
 
             jugador.setOnClickListener(new View.OnClickListener() {
@@ -156,9 +138,6 @@ public class MainActivity extends AppCompatActivity {
                 jugador.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //Integer valor = jugadores[jugId].getValue(numerico);
-                        //et_modal.setText(valor.toString());
-                        //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
                         showNumberPickerDialog(numerico, jugadores[jugId].getValue(numerico), jugId);
 
                     }
@@ -177,9 +156,6 @@ public class MainActivity extends AppCompatActivity {
             jugador.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Integer valor = jugadores[jugId].getMercadoValue();
-                    //et_modal.setText(valor.toString());
-                    //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
                     showMercadoPickerDialog(jugId);
 
                 }
@@ -187,6 +163,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Djinns
+
+        for (int i = 0; i < jugadores.length; i++) {
+            final TextView jugador;
+            final int resID = getResources().getIdentifier("tv_djinn"  + i, "id", getPackageName());
+            final int jugId = i;
+
+            jugador = findViewById(resID);
+
+            jugador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Integer valor = jugadores[jugId].getMercadoValue();
+                    //et_modal.setText(valor.toString());
+                    //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
+                    showDjinnPickerDialog(jugId);
+
+                }
+            });
+        }
 
     }
 
@@ -342,29 +337,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void UpdateTotales(){
-        int valor=0;
-        int resID;
-        TextView tv_aux;
-        for (int i = 0; i<jugadores.length; i++) {
-            for (String numerico : numericos) {
-                resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
-                tv_aux = findViewById(resID);
-                String tmp_value = (tv_aux.getText().toString().equals("")) ? "0" : tv_aux.getText().toString();
-                tv_aux.setText(tmp_value);
-                valor += Integer.parseInt(tmp_value);
-            }
-            resID = getResources().getIdentifier("tv_total" + i, "id", getPackageName());
-            tv_aux = findViewById(resID);
-            tv_aux.setText(valor);
-            valor = 0;
-
-        }
-    }
 
     public void UpdateTotal(){
 
+        int total;
+
         for (int i = 0; i <  jugadores.length ; i++ ) {
+
 
             // Nombres
             int resID = getResources().getIdentifier("tv_jugador"+i, "id", getPackageName());
@@ -375,47 +354,53 @@ public class MainActivity extends AppCompatActivity {
             resID = getResources().getIdentifier("tv_noble"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(CalculateNobles(i) ) );
+            total=CalculateNobles(i);
 
             // Monedas
             resID = getResources().getIdentifier("tv_moneda"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(jugadores[i].getMonedas()) );
+            total+=jugadores[i].getMonedas();
 
             // Sabios
             resID = getResources().getIdentifier("tv_sabio"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(CalculateSabios(i) ) );
+            total+=CalculateSabios(i);
 
             // Palmeras
             resID = getResources().getIdentifier("tv_palmera"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(CalculatePalmeras(i) ) );
+            total+=CalculatePalmeras(i);
 
             // Castillos
             resID = getResources().getIdentifier("tv_castillo"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(CalculateCastillo(i) ) );
+            total+=CalculateCastillo(i);
 
             //Mercado
             resID = getResources().getIdentifier("tv_mercado"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(jugadores[i].getMercadoValue() ) );
+            total+=jugadores[i].getMercadoValue();
 
 
             // Camellos
             resID = getResources().getIdentifier("tv_camello"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(jugadores[i].getCamellos()) );
+            total+=jugadores[i].getCamellos();
+
+            // Djinn
+            resID = getResources().getIdentifier("tv_djinn"+i, "id", getPackageName());
+            tv_aux = findViewById(resID);
+            tv_aux.setText(String.valueOf(jugadores[i].getDjinnsValue()) );
+            total+=jugadores[i].getDjinnsValue();
 
 
             //Totales
-            int total = 0;
-            for (String numerico : numericos) {
-
-                resID = getResources().getIdentifier("tv_" + numerico + i, "id", getPackageName());
-                tv_aux = findViewById(resID);
-                total = total + Integer.parseInt(tv_aux.getText().toString());
-            }
             resID = getResources().getIdentifier("tv_total"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
             tv_aux.setText(String.valueOf(total) );
@@ -501,6 +486,21 @@ public class MainActivity extends AppCompatActivity {
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "MercadoDialogFragment");
     }
+
+
+
+    private void showDjinnPickerDialog(int jugId) {
+
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new DjinnPickerFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "DjinnDialogFragment");
+    }
+
 
     public void showCustomNumberPicker(String tipo, int numero, int jugId) {
         Intent i = new Intent(this, SelectorNumFragment.class);
