@@ -29,6 +29,11 @@
     <string name="trigo">Trigo</string>
     <string name="ceramica">Cerámica</string>
     <string name="dialogoMercado">Indica que mercancias tienes</string>
+    <string name="dialogoMonedas">Indica que monedas tienes</string>
+    <string name="dialogoMonedas1">Monedas de valor 1</string>
+    <string name="dialogoMonedas5">Monedas de valor 5</string>
+    <string name="dialogoNobles">Indica cuantos nobles tienes</string>
+    <string name="dialogoSabios">Indica cuantos sabios tienes</string>
 
 
 </resources>

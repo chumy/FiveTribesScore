@@ -86,7 +86,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="#B784F0FF"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutJugadores">
@@ -97,50 +96,29 @@
                     android:layout_height="match_parent"
                     android:layout_weight="28"
                     android:adjustViewBounds="true"
-                    android:background="#B784F0FF"
+                    android:contentDescription="@string/monedas"
                     android:scaleType="fitXY"
-                    app:srcCompat="@mipmap/monedas"
-                    android:contentDescription="@string/monedas"/>
+                    app:srcCompat="@mipmap/monedas" />
 
                 <TextView
                     android:id="@+id/tv_moneda0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Moneda"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_moneda1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Moneda"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_moneda2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Moneda"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_moneda3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Moneda"
+                    android:text="@string/valor_0"/>
             </LinearLayout>
 
             <LinearLayout
@@ -165,43 +143,23 @@
 
                 <TextView
                     android:id="@+id/tv_noble0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Noble"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_noble1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Noble"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_noble2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Noble"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_noble3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Noble"
+                    android:text="@string/valor_0"/>
             </LinearLayout>
 
             <LinearLayout
@@ -226,43 +184,23 @@
 
                 <TextView
                     android:id="@+id/tv_sabio0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Sabio"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_sabio1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Sabio"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_sabio2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Sabio"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_sabio3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Sabio"
+                    android:text="@string/valor_0" />
             </LinearLayout>
 
             <LinearLayout
@@ -288,43 +226,23 @@
 
                 <TextView
                     android:id="@+id/tv_djinn0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Djinn"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_djinn1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Djinn"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_djinn2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Djinn"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_djinn3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Djinn"
+                    android:text="@string/valor_0" />
             </LinearLayout>
 
             <LinearLayout
@@ -349,43 +267,23 @@
 
                 <TextView
                     android:id="@+id/tv_palmera0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Palmera"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_palmera1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Palmera"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_palmera2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Palmera"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_palmera3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Palmera"
+                    android:text="@string/valor_0"/>
             </LinearLayout>
 
             <LinearLayout
@@ -410,43 +308,23 @@
 
                 <TextView
                     android:id="@+id/tv_castillo0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Castillo"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_castillo1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Castillo"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_castillo2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Castillo"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_castillo3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Castillo"
+                    android:text="@string/valor_0"/>
             </LinearLayout>
 
             <LinearLayout
@@ -454,7 +332,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#F9D59B"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutCastillos">
@@ -471,43 +348,23 @@
 
                 <TextView
                     android:id="@+id/tv_camello0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Camello"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_camello1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Camello"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_camello2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Camello"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_camello3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Camello"
+                    android:text="@string/valor_0"/>
             </LinearLayout>
 
             <LinearLayout
@@ -515,7 +372,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#DAE998"
+
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutCamellos"
@@ -533,43 +390,23 @@
 
                 <TextView
                     android:id="@+id/tv_mercado0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Mercado"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_mercado1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Mercado"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_mercado2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Mercado"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_mercado3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Mercado"
+                    android:text="@string/valor_0" />
             </LinearLayout>
 
             <LinearLayout
@@ -593,43 +430,23 @@
 
                 <TextView
                     android:id="@+id/tv_total0"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Total"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_total1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Total"
+                    android:text="@string/valor_0"/>
 
                 <TextView
                     android:id="@+id/tv_total2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Total"
+                    android:text="@string/valor_0" />
 
                 <TextView
                     android:id="@+id/tv_total3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:gravity="center"
-                    android:text="@string/valor_0"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    style="@style/Casilla.Total"
+                    android:text="@string/valor_0" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -30,7 +30,6 @@ class Jugador {
         this.maxNobles = false;
         this.mercado = new Mercancia[]{};
 
-
     }
 
     int getMultNobles(){

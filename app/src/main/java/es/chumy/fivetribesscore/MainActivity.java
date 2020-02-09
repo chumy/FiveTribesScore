@@ -47,7 +47,16 @@ public class MainActivity extends AppCompatActivity {
         add(new Djinn("Utug", 4));
     }};
 
+    //Mapeo de casillas
 
+    private int[] casillasMoneda = { R.id.tv_moneda0, R.id.tv_moneda1,R.id.tv_moneda2, R.id.tv_moneda3};
+    private int[] casillasNoble = { R.id.tv_noble0, R.id.tv_noble1,R.id.tv_noble2, R.id.tv_noble3};
+    private int[] casillasSabio= { R.id.tv_sabio0, R.id.tv_sabio1,R.id.tv_sabio2, R.id.tv_sabio3};
+    private int[] casillasDjinn = { R.id.tv_djinn0, R.id.tv_djinn1,R.id.tv_djinn2, R.id.tv_djinn3};
+    private int[] casillasPalmera = { R.id.tv_palmera0, R.id.tv_palmera1,R.id.tv_palmera2, R.id.tv_palmera3};
+    private int[] casillasCastillo = { R.id.tv_castillo0, R.id.tv_castillo1,R.id.tv_castillo2, R.id.tv_castillo3};
+    private int[] casillasCamello= { R.id.tv_camello0, R.id.tv_camello1,R.id.tv_camello2, R.id.tv_camello3};
+    private int[] casillasMercado = { R.id.tv_mercado0, R.id.tv_mercado1,R.id.tv_mercado2, R.id.tv_mercado3};
 
     AlertDialog modal, modal_text;
     EditText et_modal, et_modal_text;
@@ -124,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
+/*
 
         for (final String numerico : numericos) {
 
@@ -143,63 +152,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }
-
-        //Monedas
-        for (int i = 0; i < jugadores.length; i++) {
-            final TextView jugador;
-            final int resID = getResources().getIdentifier("tv_moneda"  + i, "id", getPackageName());
-            final int jugId = i;
-
-            jugador = findViewById(resID);
-
-            jugador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showMonedaPickerDialog(jugId);
-
-                }
-            });
-        }
+        }*/
 
 
-        //Mercado
-        for (int i = 0; i < jugadores.length; i++) {
-            final TextView jugador;
-            final int resID = getResources().getIdentifier("tv_mercado"  + i, "id", getPackageName());
-            final int jugId = i;
-
-            jugador = findViewById(resID);
-
-            jugador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showMercadoPickerDialog(jugId);
-
-                }
-            });
-        }
-
-        //Djinns
-
-        for (int i = 0; i < jugadores.length; i++) {
-            final TextView jugador;
-            final int resID = getResources().getIdentifier("tv_djinn"  + i, "id", getPackageName());
-            final int jugId = i;
-
-            jugador = findViewById(resID);
-
-            jugador.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Integer valor = jugadores[jugId].getMercadoValue();
-                    //et_modal.setText(valor.toString());
-                    //showCustomNumberPicker(numerico, jugadores[jugId].getValue(numerico), jugId);
-                    showDjinnPickerDialog(jugId);
-
-                }
-            });
-        }
 
     }
 
@@ -226,130 +181,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 modal_text.show();
                 break;
-           /* case "noble":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_noble"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
 
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setNobles( (var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        setMaxNoble(judId);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-            case "sabio":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_sabio"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setCamellos((var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-            case "palmera":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_palmera"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setPalmeras((var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-            case "castillo":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_castillo"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setCastillos( (var.length() == 0) ? 0 : Integer.parseInt(var));
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-            case "camello":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_camello"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setCamellos(  (var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-            case "moneda":
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_moneda"+id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String var = et_modal.getText().toString();
-                        jugadores[judId].setMonedas( (var.length() == 0) ? 0 : Integer.parseInt(var) );
-                        tv_modal.setText(var);
-                        UpdateTotal();
-                    }
-                });
-                modal.show();
-
-                break;
-
-            default:
-                modal.setTitle(titulo);
-                modal.setView(et_modal);
-                resID = getResources().getIdentifier("tv_" + tipo +id, "id", getPackageName());
-                tv_modal = findViewById(resID);
-
-                modal.setButton(modal.BUTTON_POSITIVE, getResources().getString(R.string.btn_actualizar), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        tv_modal.setText(et_modal.getText());
-                         UpdateTotal();
-                     }
-                    });
-                 modal.show();*/
 
         }
 
@@ -484,37 +316,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void showNumberPickerDialog(String tipo, int numero, int jugId) {
-
-        // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new SelectorNumFragment();
-
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
-        args.putInt("valor", numero);
-        args.putString("tipo", tipo);
-        args.putInt("jugador", jugId);
-        dialog.setArguments(args);
-        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
 
 
+    public void showMercadoDialog(View casilla) {
 
-    }
-
-    private void showMonedaPickerDialog(int jugId) {
-
-        // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new MonedaPickerFragment();
-
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
-        args.putInt("jugador", jugId);
-        dialog.setArguments(args);
-        dialog.show(getSupportFragmentManager(), "MonedaDialogFragment");
-    }
-
-    private void showMercadoPickerDialog(int jugId) {
-
+        int jugId = 0;
+        for (int i = 0; i<casillasMercado.length; i++) {
+            if (casilla.getId() == casillasMercado[i]) {
+                jugId = i;
+                break;
+            }
+        }
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new MercadoPickerFragment();
 
@@ -525,10 +337,35 @@ public class MainActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "MercadoDialogFragment");
     }
 
+    public void showMonedaDialog(View casilla) {
 
+        int jugId = 0;
+        for (int i = 0; i<casillasMoneda.length; i++) {
+            if (casilla.getId() == casillasMoneda[i]) {
+                jugId = i;
+                break;
+            }
+        }
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new MonedaPickerFragment();
 
-    private void showDjinnPickerDialog(int jugId) {
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
 
+        dialog.show(getSupportFragmentManager(), "MonedaDialogFragment");
+    }
+
+    public void showDjinnDialog(View casilla) {
+
+        int jugId = 0;
+        for (int i = 0; i<casillasDjinn.length; i++) {
+            if (casilla.getId() == casillasDjinn[i]) {
+                jugId = i;
+                break;
+            }
+        }
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new DjinnPickerFragment();
 
@@ -539,13 +376,128 @@ public class MainActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "DjinnDialogFragment");
     }
 
+    public void showSabioDialog(View casilla){
+        String tipo = "sabio";
+        int numero;
+        int jugId = 0;
 
-    public void showCustomNumberPicker(String tipo, int numero, int jugId) {
-        Intent i = new Intent(this, SelectorNumFragment.class);
-        i.putExtra("jugador", jugId);
-        i.putExtra("tipo", tipo);
-        i.putExtra("valor", 5);
-        startActivity(i);
+        for (int i = 0; i<casillasSabio.length; i++) {
+            if (casilla.getId() == casillasSabio[i]) {
+                jugId = i;
+                break;
+            }
+        }
+
+        numero = jugadores[jugId].getValue(tipo);
+        DialogFragment dialog = new SelectorNumFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("valor", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+
+    }
+
+    public void showNobleDialog(View casilla){
+        String tipo = "noble";
+        int numero;
+        int jugId = 0;
+
+        for (int i = 0; i<casillasNoble.length; i++) {
+            if (casilla.getId() == casillasNoble[i]) {
+                jugId = i;
+                break;
+            }
+        }
+
+        numero = jugadores[jugId].getValue(tipo);
+        DialogFragment dialog = new SelectorNumFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("valor", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+
+    }
+
+    public void showPalmeraDialog(View casilla){
+        String tipo = "palmera";
+        int numero;
+        int jugId = 0;
+
+        for (int i = 0; i<casillasPalmera.length; i++) {
+            if (casilla.getId() == casillasPalmera[i]) {
+                jugId = i;
+                break;
+            }
+        }
+
+        numero = jugadores[jugId].getValue(tipo);
+        DialogFragment dialog = new SelectorNumFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("valor", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+
+    }
+
+    public void showCastilloDialog(View casilla){
+        String tipo = "castillo";
+        int numero;
+        int jugId = 0;
+
+        for (int i = 0; i<casillasCastillo.length; i++) {
+            if (casilla.getId() == casillasCastillo[i]) {
+                jugId = i;
+                break;
+            }
+        }
+
+        numero = jugadores[jugId].getValue(tipo);
+        DialogFragment dialog = new SelectorNumFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("valor", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+
+    }
+    public void showCamelloDialog(View casilla){
+        String tipo = "camello";
+        int numero;
+        int jugId = 0;
+
+        for (int i = 0; i<casillasCamello.length; i++) {
+            if (casilla.getId() == casillasCamello[i]) {
+                jugId = i;
+                break;
+            }
+        }
+
+        numero = jugadores[jugId].getValue(tipo);
+        DialogFragment dialog = new SelectorNumFragment();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("valor", numero);
+        args.putString("tipo", tipo);
+        args.putInt("jugador", jugId);
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+
     }
 
 }
