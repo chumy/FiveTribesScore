@@ -10,6 +10,18 @@
     <style name="AppTheme" parent="Theme.Design.Light.NoActionBar"></style>
 
 
+    <style name="DialogRounded" parent="@android:style/Theme.NoTitleBar">
+        <!--item name="android:windowBackground">@android:color/transparent</item-->
+        <item name="android:padding">20dp</item>
+
+    </style>
+
+
+    <style name="DialogRounded.Moneda">
+        <item name="android:background">@color/monedaLight</item>
+
+    </style>
+
     <style name="Casilla">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -21,49 +33,79 @@
 
 
     <style name="Casilla.Moneda">
-        <item name="android:background">#84F0FF</item>
+        <item name="android:background">@color/monedaDark</item>
         <item name="android:onClick">showMonedaDialog</item>
     </style>
 
     <style name="Casilla.Noble">
-        <item name="android:background">#F9F29B</item>
+        <item name="android:background">@color/nobleDark</item>
         <item name="android:onClick">showNobleDialog</item>
     </style>
 
+
     <style name="Casilla.Sabio">
-        <item name="android:background">#E1DFD6</item>
+        <item name="android:background">@color/sabioDark</item>
         <item name="android:onClick">showSabioDialog</item>
     </style>
 
     <style name="Casilla.Djinn">
-        <item name="android:background">#F0A9C9</item>
+        <item name="android:background">@color/djinnDark</item>
         <item name="android:onClick">showDjinnDialog</item>
     </style>
 
     <style name="Casilla.Palmera">
-        <item name="android:background">#DECE91</item>
+        <item name="android:background">@color/palmeraDark</item>
         <item name="android:onClick">showPalmeraDialog</item>
     </style>
 
     <style name="Casilla.Castillo">
-        <item name="android:background">#C5B9BA</item>
+        <item name="android:background">@color/castilloDark</item>
         <item name="android:onClick">showCastilloDialog</item>
     </style>
 
     <style name="Casilla.Camello">
-        <item name="android:background">#F9D59B</item>
+        <item name="android:background">@color/camelloDark</item>
         <item name="android:onClick">showCamelloDialog</item>
     </style>
 
     <style name="Casilla.Mercado">
-        <item name="android:background">#DAE998</item>
+        <item name="android:background">@color/mercadoDark</item>
         <item name="android:onClick">showMercadoDialog</item>
     </style>
 
 
-
     <style name="Casilla.Total">
         <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="DialogoTitulo">
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DialogoTexto">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="DialogoTitulo.Moneda">
+        <item name="android:textColor">@color/monedaDark</item>
+    </style>
+
+    <style name="DialogoTexto.Moneda">
+        <item name="android:textColor">@color/camelloDark</item>
+    </style>
+
+    <style name="DialogoTitulo.Camello">
+        <item name="android:textColor">@color/camelloDark</item>
+    </style>
+
+    <style name="DialogoTexto.Camello">
+        <item name="android:textColor">@color/camelloDark</item>
     </style>
 
 </resources>

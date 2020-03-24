@@ -5,22 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String[] numericos = { "sabio", "castillo", "noble", "palmera", "camello"};
+    public static final String[] numericos = { "sabio", "castillo", "noble", "palmera"};
 
     public static String[] monedas = new String[] {"1","5"};
+
+    public static String[] camellos = new String[] {"4","5","6","8","10","12","15"};
 
     public static final List<Djinn> DjinnList = new ArrayList<Djinn>(){{
         add(new Djinn("Al-Amin", 5));
@@ -240,8 +240,8 @@ public class MainActivity extends AppCompatActivity {
             // Camellos
             resID = getResources().getIdentifier("tv_camello"+i, "id", getPackageName());
             tv_aux = findViewById(resID);
-            tv_aux.setText(String.valueOf(jugadores[i].getCamellos()) );
-            total+=jugadores[i].getCamellos();
+            tv_aux.setText(String.valueOf(CalculateCamellos(i)) );
+            total+=CalculateCamellos(i);
 
             // Djinn
             resID = getResources().getIdentifier("tv_djinn"+i, "id", getPackageName());
@@ -315,6 +315,14 @@ public class MainActivity extends AppCompatActivity {
         return resultado;
     }
 
+    public int CalculateCamellos (int jugador){
+        Jugador p1 = jugadores[jugador];
+        int resultado=0;
+        for (int i=0;i < camellos.length; i++){
+            resultado+= p1.getCamellos()[i]*Integer.parseInt(camellos[i]);
+        }
+        return resultado;
+    }
 
 
 
@@ -334,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putInt("jugador", jugId);
         dialog.setArguments(args);
+
         dialog.show(getSupportFragmentManager(), "MercadoDialogFragment");
     }
 
@@ -349,6 +358,8 @@ public class MainActivity extends AppCompatActivity {
         // Create an instance of the dialog fragment and show it
         DialogFragment dialog = new MonedaPickerFragment();
 
+        //dialog.getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        //dialog.getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         // Supply num input as an argument.
         Bundle args = new Bundle();
         args.putInt("jugador", jugId);
@@ -389,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         numero = jugadores[jugId].getValue(tipo);
-        DialogFragment dialog = new SelectorNumFragment();
+        DialogFragment dialog = new GeneralPickerFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
@@ -414,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         numero = jugadores[jugId].getValue(tipo);
-        DialogFragment dialog = new SelectorNumFragment();
+        DialogFragment dialog = new GeneralPickerFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
@@ -439,7 +450,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         numero = jugadores[jugId].getValue(tipo);
-        DialogFragment dialog = new SelectorNumFragment();
+        DialogFragment dialog = new GeneralPickerFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
@@ -464,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         numero = jugadores[jugId].getValue(tipo);
-        DialogFragment dialog = new SelectorNumFragment();
+        DialogFragment dialog = new GeneralPickerFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
@@ -487,16 +498,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        numero = jugadores[jugId].getValue(tipo);
-        DialogFragment dialog = new SelectorNumFragment();
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new CamelloPickerFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
-        args.putInt("valor", numero);
-        args.putString("tipo", tipo);
         args.putInt("jugador", jugId);
         dialog.setArguments(args);
-        dialog.show(getSupportFragmentManager(), "NumberDialogFragment");
+        dialog.show(getSupportFragmentManager(), "CamelloDialogFragment");
 
     }
 

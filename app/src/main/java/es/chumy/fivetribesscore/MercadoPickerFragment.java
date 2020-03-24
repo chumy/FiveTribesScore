@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -75,11 +76,11 @@ public class MercadoPickerFragment  extends DialogFragment {
 
 
                 //@android:drawable/ic_media_ff
-                ImageButton btn_plus = new ImageButton(getContext());
-                btn_plus.setImageResource(android.R.drawable.ic_media_next);
+                ImageView btn_plus = new ImageView(getContext());
+                btn_plus.setImageResource(R.drawable.ic_plus);
 
-                ImageButton btn_minus = new ImageButton(getContext());
-                btn_minus.setImageResource(android.R.drawable.ic_media_previous);
+                ImageView btn_minus = new ImageView(getContext());
+                btn_minus.setImageResource(R.drawable.ic_minus);
 
                 //Button btn_plus = new Button(getContext());
                 //btn_plus.setText(">");

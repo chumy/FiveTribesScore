@@ -34,6 +34,17 @@
     <string name="dialogoMonedas5">Monedas de valor 5</string>
     <string name="dialogoNobles">Indica cuantos nobles tienes</string>
     <string name="dialogoSabios">Indica cuantos sabios tienes</string>
-
+    <string name="dialogoPalmeras">Indica cuantas palmeras tienes</string>
+    <string name="dialogoCastillos">Indica cuantos castillos tienes</string>
+    <string name="dialogoCamellos">Indica cuantos camellos tienes</string>
+    <string name="dialogoCamellos4">Casillas de valor 4</string>
+    <string name="dialogoCamellos5">Casillas de valor 5</string>
+    <string name="dialogoCamellos6">Casillas de valor 6</string>
+    <string name="dialogoCamellos8">Casillas de valor 8</string>
+    <string name="dialogoCamellos10">Casillas de valor 10</string>
+    <string name="dialogoCamellos12">Casillas de valor 12</string>
+    <string name="dialogoCamellos15">Casillas de valor 15</string>
+    <string name="incrementar">Incrementar</string>
+    <string name="decrementar">Decrementar</string>
 
 </resources>

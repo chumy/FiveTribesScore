@@ -1,148 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_moneda"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvTituloMoneda"
+        style="@style/DialogoTitulo.Moneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/monedas"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tvDescMoneda"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/fragmentborder"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/dialogoMonedas"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/tvTituloMoneda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/monedas"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/tvDescMoneda"
+        <TableLayout
+            android:id="@+id/ll_picker_dialogo_moneda"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/dialogoMonedas"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TableLayout
-                android:id="@+id/ll_picker_dialogo_moneda"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_moneda_1_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="12dp"
-                        android:layout_marginBottom="6dp"
-                        android:text="@string/dialogoMonedas1"
-                        android:textSize="18sp" />
-
-                    <ImageView
-                        android:id="@+id/iv_rew_1_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_minus" />
-
-                    <TextView
-                        android:id="@+id/tv_valor1_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:text="@string/valor_0"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/iv_ff_1_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_plus" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_moneda_5_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="12dp"
-                        android:layout_marginBottom="12dp"
-                        android:text="@string/dialogoMonedas5"
-                        android:textSize="18sp" />
-
-                    <ImageView
-                        android:id="@+id/iv_rew_5_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_minus" />
-
-                    <TextView
-                        android:id="@+id/tv_valor5_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:text="@string/valor_0"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/iv_ff_5_dialogo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_plus" />
-                </TableRow>
-            </TableLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_botonera_moneda_dialogo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/bt_cancel_moneda_dialogo"
+                <TextView
+                    android:id="@+id/tv_moneda_1_dialogo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@android:string/cancel" />
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/dialogoMonedas1"
+                    android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/bt_aceptar_moneda_dialogo"
+                <ImageView
+                    android:id="@+id/iv_rew_1_dialogo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@android:string/ok" />
-            </LinearLayout>
+                    app:srcCompat="@drawable/ic_minus" />
 
+                <TextView
+                    android:id="@+id/tv_valor1_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/valor_0"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_ff_1_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_plus" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_moneda_5_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/dialogoMonedas5"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/iv_rew_5_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_minus" />
+
+                <TextView
+                    android:id="@+id/tv_valor5_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/valor_0"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_ff_5_dialogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_plus" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_botonera_moneda_dialogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt_cancel_moneda_dialogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/cancel" />
+
+            <Button
+                android:id="@+id/bt_aceptar_moneda_dialogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@android:string/ok" />
         </LinearLayout>
 
-
     </LinearLayout>
+
+
+</LinearLayout>

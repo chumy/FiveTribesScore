@@ -3,4 +3,23 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="monedaLight">#FFCFEFE7</color>
+    <color name="monedaDark">#FF86D6C9</color>
+    <color name="monedaDarkDialog">#6EAA9F</color>
+    <color name="nobleLight">#FFfdf6c9</color>
+    <color name="nobleDark">#FFffed7e</color>
+    <color name="sabioLight">#FFf1ece0</color>
+    <color name="sabioDark">#FFe8e0cc</color>
+    <color name="djinnLight">#FFfbcee9</color>
+    <color name="djinnDark">#FFf9acda</color>
+    <color name="castilloLight">#FFd8d6db</color>
+    <color name="castilloDark">#FFbfbec7</color>
+    <color name="palmeraLight">#FFeee0b3</color>
+    <color name="palmeraDark">#FFe2cc87</color>
+    <color name="camelloLight">#FFfee2b6</color>
+    <color name="camelloDark">#FFfcd08a</color>
+    <color name="mercadoLight">#FFe8f4b4</color>
+    <color name="mercadoDark">#FFd9ed84</color>
 </resources>
+
+

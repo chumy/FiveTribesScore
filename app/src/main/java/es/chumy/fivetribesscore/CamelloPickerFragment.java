@@ -7,20 +7,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-public class MonedaPickerFragment extends DialogFragment {
+public class CamelloPickerFragment extends DialogFragment {
 
-    int[] monedaList = new int[] {0,0};
+    int[] camellosList = new int[] {0,0,0,0,0,0,0};
 
 
     @NonNull
@@ -37,7 +33,7 @@ public class MonedaPickerFragment extends DialogFragment {
         // Get the layout inflater
         LayoutInflater inflater = requireActivity().getLayoutInflater();
 
-        View view = inflater.inflate(R.layout.dialog_moneda_picker, null);
+        View view = inflater.inflate(R.layout.dialog_camello_picker, null);
 
 
         //dialog.getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -45,25 +41,25 @@ public class MonedaPickerFragment extends DialogFragment {
 
         final int jugId = getArguments().getInt("jugador");
 
-        monedaList = ((MainActivity)getActivity()).jugadores[jugId].getMonedas();
+        camellosList = ((MainActivity)getActivity()).jugadores[jugId].getCamellos();
 
 
-        for (int i = 0; i< monedaList.length; i++) {
+        for (int i = 0; i< camellosList.length; i++) {
 
-            final int idMoneda = i;
+            final int idCamello = i;
             final TextView tv_valor;
 
-            int resID = getResources().getIdentifier("tv_valor"+((MainActivity)getActivity()).monedas[i]+"_dialogo", "id", getActivity().getPackageName());
+            int resID = getResources().getIdentifier("tv_valor"+((MainActivity)getActivity()).camellos[i]+"_dialogo", "id", getActivity().getPackageName());
             tv_valor = view.findViewById(resID);
-            tv_valor.setText(String.valueOf(monedaList[idMoneda]) );
+            tv_valor.setText(String.valueOf(camellosList[idCamello]) );
 
 
             ImageView btn_plus;
-            resID = getResources().getIdentifier("iv_ff_"+((MainActivity)getActivity()).monedas[i]+"_dialogo", "id", getActivity().getPackageName());
+            resID = getResources().getIdentifier("iv_ff_"+((MainActivity)getActivity()).camellos[i]+"_dialogo", "id", getActivity().getPackageName());
             btn_plus = view.findViewById(resID);
 
             ImageView btn_minus;
-            resID = getResources().getIdentifier("iv_rew_"+((MainActivity)getActivity()).monedas[i]+"_dialogo", "id", getActivity().getPackageName());
+            resID = getResources().getIdentifier("iv_rew_"+((MainActivity)getActivity()).camellos[i]+"_dialogo", "id", getActivity().getPackageName());
             btn_minus = view.findViewById(resID);
 
 
@@ -73,14 +69,14 @@ public class MonedaPickerFragment extends DialogFragment {
             btn_plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    incrementar(tv_valor, idMoneda);
+                    incrementar(tv_valor, idCamello);
                 }
             });
 
             btn_minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    decrementar(tv_valor, idMoneda);
+                    decrementar(tv_valor, idCamello);
                 }
             });
 
@@ -89,20 +85,20 @@ public class MonedaPickerFragment extends DialogFragment {
 
 
 
-        Button btn_ok = view.findViewById(R.id.bt_aceptar_moneda_dialogo);
+        Button btn_ok = view.findViewById(R.id.bt_aceptar_camello_dialogo);
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveMercado(jugId);
-                MonedaPickerFragment.this.getDialog().cancel();
+                CamelloPickerFragment.this.getDialog().cancel();
             }
         });
 
-        Button btn_cancel = view.findViewById(R.id.bt_cancel_moneda_dialogo);
+        Button btn_cancel = view.findViewById(R.id.bt_cancel_camello_dialogo);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MonedaPickerFragment.this.getDialog().cancel();
+                CamelloPickerFragment.this.getDialog().cancel();
             }
         });
 
@@ -118,7 +114,7 @@ public class MonedaPickerFragment extends DialogFragment {
         //return builder.create();
 
         Dialog d = builder.create();
-        d.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
         return d;
@@ -132,7 +128,7 @@ public class MonedaPickerFragment extends DialogFragment {
         num++;
 
         tv1.setText(String.valueOf(num));
-        monedaList[i]=num;
+        camellosList[i]=num;
 
     }
 
@@ -146,12 +142,12 @@ public class MonedaPickerFragment extends DialogFragment {
         }
 
         tv1.setText(String.valueOf(num));
-        monedaList[i]=num;
+        camellosList[i]=num;
 
     }
 
     public void saveMercado(int jugId){
-        ((MainActivity)getActivity()).jugadores[jugId].setMonedas(monedaList);
+        ((MainActivity)getActivity()).jugadores[jugId].setCamellos(camellosList);
         ((MainActivity)getActivity()).UpdateTotal();
 
     }
