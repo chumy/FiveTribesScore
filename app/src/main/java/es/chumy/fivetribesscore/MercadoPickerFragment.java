@@ -4,7 +4,9 @@ import android.app.Dialog;
 
 import android.graphics.Color;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -19,6 +21,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
+import org.w3c.dom.Text;
 
 public class MercadoPickerFragment  extends DialogFragment {
 
@@ -41,7 +45,7 @@ public class MercadoPickerFragment  extends DialogFragment {
             final String tipo = getArguments().getString("tipo");
             final int jugId = getArguments().getInt("jugador");
 
-            final TextView tv = view.findViewById(R.id.tvTituloMercado);
+            final TextView tv = view.findViewById(R.id.tvDescMercado);
 
             mercanciaList = new Mercancia[((MainActivity)getActivity()).jugadores[jugId].getMercado().length];
             //mercanciaList = ((MainActivity)getActivity()).jugadores[jugId].getMercado().clone();
@@ -54,8 +58,9 @@ public class MercadoPickerFragment  extends DialogFragment {
             }
 
             //Set TextView text color
-            tv.setTextColor(Color.parseColor("#ffd32b3b"));
-            tv.setText(getResources().getString(R.string.dialogoMercado));
+            //tv.setTextColor(Color.parseColor("#ffd32b3b"));
+            //tv.setGravity(Gravity.CENTER);
+            //tv.setText(getResources().getString(R.string.dialogoMercado));
 
             TableLayout parent = view.findViewById(R.id.ll_picker);
 
@@ -91,6 +96,7 @@ public class MercadoPickerFragment  extends DialogFragment {
                 final TextView tv_valor = new TextView(getContext());
                 tv_valor.setText(String.valueOf(mercanciaList[i].getCantidad()));
                 tv_valor.setTextSize(20);
+                tv_valor.setTypeface(Typeface.DEFAULT_BOLD);
                 tv_valor.setPadding(0,10,0,0);
 
                 btn_plus.setOnClickListener(new View.OnClickListener() {

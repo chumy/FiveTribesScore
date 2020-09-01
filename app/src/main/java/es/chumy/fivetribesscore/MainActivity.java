@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
             jugadores[i].setMercado(new Mercancia[]{
                     new Mercancia(getResources().getString(R.string.marfil), 0, 2),
-                    new Mercancia(getResources().getString(R.string.seda), 0, 2),
+                    new Mercancia(getResources().getString(R.string.joyas), 0, 2),
                     new Mercancia(getResources().getString(R.string.oro), 0, 2),
                     new Mercancia(getResources().getString(R.string.papiros), 0, 4),
                     new Mercancia(getResources().getString(R.string.seda), 0, 4),

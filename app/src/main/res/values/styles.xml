@@ -108,4 +108,20 @@
         <item name="android:textColor">@color/camelloDark</item>
     </style>
 
+    <style name="DialogoTitulo.Djinn">
+        <item name="android:textColor">@color/djinnDark</item>
+    </style>
+
+    <style name="DialogoTexto.Djinn">
+        <item name="android:textColor">@color/djinnDark</item>
+    </style>
+
+    <style name="DialogoTitulo.Mercado">
+        <item name="android:textColor">@color/mercadoDark</item>
+    </style>
+
+    <style name="DialogoTexto.Mercado">
+        <item name="android:textColor">@color/mercadoDark</item>
+    </style>
+
 </resources>
