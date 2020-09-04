@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -151,7 +152,11 @@ public class MercadoPickerFragment  extends DialogFragment {
             builder.setView(view)
                     .setCancelable(false)
             ;
-            return builder.create();
+            //return builder.create();
+
+            Dialog d = builder.create();
+            d.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            return d;
         }
 
         @Override

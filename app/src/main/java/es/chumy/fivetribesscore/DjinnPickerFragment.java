@@ -1,6 +1,7 @@
 package es.chumy.fivetribesscore;
 
 import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,7 +115,11 @@ public class DjinnPickerFragment extends DialogFragment {
         builder.setView(view)
                 .setCancelable(false)
         ;
-        return builder.create();
+        //return builder.create();
+
+        Dialog d = builder.create();
+        d.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        return d;
 
     }
 
